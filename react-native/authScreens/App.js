@@ -19,6 +19,7 @@ import {
   Dimensions,
   View,
   TouchableOpacity,
+  TouchableHighlight,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -45,13 +46,16 @@ const App: () => Node = () => {
         <Text style={styles.header}> Welcome </Text>
         <TextInput
           style={styles.inputs}
-          keyboardType="phone-pad"
+          keyboardType="numeric"
           placeholder="Enter Phone Number"
+          maxLength={10}
+          textContentType="telephoneNumber"
         />
         <TextInput
           style={styles.inputs}
           keyboardType="email-address"
           placeholder="Enter Email"
+          textContentType="emailAddress"
         />
         <View style={styles.passwordView}>
           <TextInput
@@ -73,6 +77,9 @@ const App: () => Node = () => {
         <TouchableOpacity activeOpacity={0.8} style={styles.button}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+        <TouchableHighlight>
+          <Text style={styles.signUpText}>Sign Up</Text>
+        </TouchableHighlight>
       </View>
     </SafeAreaView>
   );
@@ -107,7 +114,6 @@ const styles = StyleSheet.create({
     margin: 12,
   },
   passwordView: {
-    // flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -115,12 +121,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#1c1d1d',
     borderRadius: 12,
-    // padding: 24,
   },
   passwordInput: {
-    // margin: 12,
-    // flex: 1,
-    // height: 100,
     fontSize: 18,
     padding: 12,
     color: '#000',
@@ -146,10 +148,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 12,
   },
-
   buttonText: {
     color: '#eee',
     fontSize: 20,
+    textAlign: 'center',
+  },
+  signUpText: {
+    fontSize: 16,
+    color: '#1c1c1c',
     textAlign: 'center',
   },
 });
