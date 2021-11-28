@@ -6,106 +6,151 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
+  Image,
   Text,
+  TextInput,
   useColorScheme,
+  Dimensions,
   View,
+  TouchableOpacity,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App: () => Node = () => {
+  const [passwordVisible, setpasswordVisible] = useState(true);
+
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <SafeAreaView backgroundColor="#eee" style={styles.container}>
+      <StatusBar
+        backgroundColor="#0248FF"
+        // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={'light-content'}
+      />
+      <View>
+        <Image
+          style={styles.logo}
+          source={{
+            uri: 'https://upload.wikimedia.org/wikipedia/commons/7/79/DigitalOcean_logo.png',
+          }}
+        />
+        <Text style={styles.header}> Welcome </Text>
+        <TextInput
+          style={styles.inputs}
+          keyboardType="phone-pad"
+          placeholder="Enter Phone Number"
+        />
+        <TextInput
+          style={styles.inputs}
+          keyboardType="email-address"
+          placeholder="Enter Email"
+        />
+        <View style={styles.passwordView}>
+          <TextInput
+            style={styles.passwordInput}
+            secureTextEntry={passwordVisible}
+            placeholder="Enter Password"
+          />
+          <TouchableOpacity
+            activeOpacity={0.6}
+            style={styles.showButton}
+            onPress={() => {
+              setpasswordVisible(!passwordVisible);
+            }}>
+            <Text style={styles.showButtonText}>
+              {passwordVisible ? 'show' : 'hide'}
+            </Text>
+          </TouchableOpacity>
         </View>
-      </ScrollView>
+        <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  logo: {
+    margin: 12,
+    alignSelf: 'center',
+    width: Dimensions.get('window').width * 0.6,
+    height: 44,
+    resizeMode: 'contain',
   },
-  sectionDescription: {
-    marginTop: 8,
+  header: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#1c1c1c',
+  },
+  inputs: {
     fontSize: 18,
-    fontWeight: '400',
+    color: '#1c1c1c',
+    borderWidth: 2,
+    borderColor: '#1c1d1d',
+    borderRadius: 12,
+    padding: 12,
+    margin: 12,
   },
-  highlight: {
-    fontWeight: '700',
+  passwordView: {
+    // flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: 12,
+    borderWidth: 2,
+    borderColor: '#1c1d1d',
+    borderRadius: 12,
+    // padding: 24,
+  },
+  passwordInput: {
+    // margin: 12,
+    // flex: 1,
+    // height: 100,
+    fontSize: 18,
+    padding: 12,
+    color: '#000',
+  },
+  showButton: {
+    width: 60,
+    borderRadius: 8,
+    backgroundColor: '#ddd',
+    marginRight: 8,
+    alignItems: 'center',
+  },
+  showButtonText: {
+    color: '#000',
+    padding: 4,
+    margin: 4,
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#0248FF',
+    color: '#eee',
+    height: 50,
+    borderRadius: 8,
+    justifyContent: 'center',
+    margin: 12,
+  },
+
+  buttonText: {
+    color: '#eee',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
 
