@@ -27,35 +27,10 @@ import {
   Provider as PaperProvider,
   Snackbar,
   TextInput,
+  configureFonts,
 } from 'react-native-paper';
 import CustomDivider from './src/divider';
 import CustomDialog from './src/dialog';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -64,8 +39,70 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const fontConfig = {
+    web: {
+      regular: {
+        fontFamily: 'sans-serif',
+        fontWeight: 'normal',
+      },
+      medium: {
+        fontFamily: 'sans-serif-medium',
+        fontWeight: 'normal',
+      },
+      light: {
+        fontFamily: 'sans-serif-light',
+        fontWeight: 'normal',
+      },
+      thin: {
+        fontFamily: 'sans-serif-thin',
+        fontWeight: 'normal',
+      },
+    },
+    ios: {
+      regular: {
+        fontFamily: 'sans-serif',
+        fontWeight: 'normal',
+      },
+      medium: {
+        fontFamily: 'sans-serif-medium',
+        fontWeight: 'normal',
+      },
+      light: {
+        fontFamily: 'sans-serif-light',
+        fontWeight: 'normal',
+      },
+      thin: {
+        fontFamily: 'sans-serif-thin',
+        fontWeight: 'normal',
+      },
+    },
+    android: {
+      regular: {
+        fontFamily: 'ComicNeue-Regular',
+        fontWeight: 'normal',
+      },
+      medium: {
+        fontFamily: 'ComicNeue-Bold',
+        fontWeight: 'normal',
+      },
+      light: {
+        fontFamily: 'ComicNeue-Light',
+        fontWeight: 'normal',
+      },
+      // thin: {
+      //   fontFamily: 'ComicNeue-Bold',
+      //   fontWeight: 'normal',
+      // },
+    },
+  };
+
+  const theme = {
+    ...DefaultTheme,
+    fonts: configureFonts(fontConfig),
+  };
+
   return (
-    <PaperProvider>
+    <PaperProvider theme={theme}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar
           backgroundColor={DefaultTheme.colors.primary}
@@ -168,16 +205,16 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 28,
     color: DefaultTheme.colors.primary,
+    fontFamily: 'ComicNeue-Bold',
     textAlign: 'center',
-    fontWeight: '800',
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400',
+    // fontWeight: '400',
   },
   highlight: {
-    fontWeight: '700',
+    // fontWeight: '700',
   },
 });
 
