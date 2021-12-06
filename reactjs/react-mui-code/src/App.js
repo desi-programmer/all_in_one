@@ -7,6 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Form from './components/Form';
+import { Box } from '@mui/system';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         </Fab>
         {/* Forms  */}
         <Form />
+      <Box  height="100px" />
       </ Container>
     </ThemeProvider>
   );
