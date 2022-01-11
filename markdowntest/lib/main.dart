@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:markdowntest/mdwidget.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Markdown Demo',
       theme: ThemeData(
+        fontFamily: GoogleFonts.lato().fontFamily,
         primarySwatch: Colors.purple,
       ),
       home: const MarkdownWidgetCode(),

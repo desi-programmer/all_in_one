@@ -1,6 +1,7 @@
 // using markdown Widget
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:markdown_widget/config/widget_config.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:markdown_widget/config/highlight_themes.dart' as theme;
 
@@ -36,6 +37,9 @@ class _MarkdownWidgetCodeState extends State<MarkdownWidgetCode> {
         ),
       ),
       body: MarkdownWidget(
+        padding: const EdgeInsets.all(
+          12.0,
+        ),
         data: data,
         styleConfig: StyleConfig(
           titleConfig: TitleConfig(
