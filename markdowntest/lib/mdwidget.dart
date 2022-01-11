@@ -1,7 +1,6 @@
 // using markdown Widget
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:markdown_widget/config/widget_config.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:markdown_widget/config/highlight_themes.dart' as theme;
 
