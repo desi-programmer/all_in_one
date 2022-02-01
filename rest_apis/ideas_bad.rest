@@ -1,0 +1,7 @@
+GET localhost/ideas [ Get all ideas ]
+
+POST localhost/ideas [ Create an idea ]
+
+GET localhost/delete_idea/:id [ deletes ]
+
+POST localhost/update_idea/:id [ updates ]

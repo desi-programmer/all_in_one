@@ -1,0 +1,10 @@
+{
+    "name" : "Prince",
+    "email" : "user@gmail.com",
+    "token" : [{
+        "token" : "HJDB&^&%^TDGTDG"
+    }],
+    "user_data" : {
+        "likes" : 120
+    }
+}

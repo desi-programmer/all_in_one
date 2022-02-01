@@ -13,8 +13,9 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
     },
-    "editor.fontFamily": "'FantasqueSansMono NF',Consolas, 'Courier New', monospace",
-    "workbench.colorTheme": "One Monokai",
+    "editor.fontFamily": "'Rec Mono DuoTone',Consolas, 'Courier New', monospace",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "editor.lineHeight": 1.5,
+    "workbench.iconTheme": "vscode-icons",
     "dart.showInspectorNotificationsForWidgetErrors": false,
-    "workbench.iconTheme": "vscode-icons"
 }

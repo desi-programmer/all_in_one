@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+
+localhost/v0/ideas 
+{
+    "title" : "REST API Best practises video",
+    "description" : "some large description"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// A Few Moments Later
+// added teams, tracking and collaboration
+
+localhost/v1/ideas 
+{
+    "title" : "REST API Best practises video",
+    "description" : "some large description",
+    "collaborators: [
+
+    ],
+    "group" : "Marketing",
+    "deadline" : "date",
+}
+
+

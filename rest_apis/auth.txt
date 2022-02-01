@@ -1,0 +1,10 @@
+
+
+
+localhost/ideas
+
+{
+    "title" : "My amazing Idea",
+    "description" : "Secret description",
+    "uid" : 12
+}

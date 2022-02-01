@@ -1,0 +1,75 @@
+[
+    {
+        "name": "Apple M1 mac air, 8 Gb + 256 GB",
+        "categories": [
+            {
+                "category_name": "apple"
+            },
+            {
+                "category_name": "air"
+            },
+            {
+                "category_name": "laptop"
+            }
+        ],
+        "feedbacks" : [
+            
+                {
+                    "name" : {
+                        "firstname" : "Prince",
+                        "lastname" : ""
+                    },
+                    "feedback" : "Some feedback"
+                }
+            
+        ],
+        "created_at": "",
+        "description": "",
+        "discount": 1200,
+        "id": 12,
+        "images": [
+            null
+        ],
+        "length": 0,
+        "price": 98000,
+        "sku": "",
+        "status": "available",
+        "stock": 100,
+        "variants": [
+            {
+                "name": "Apple M1 mac Pro, 8 Gb + 246 Gb"
+            }
+        ],
+        "weight": 1,
+        "width": 0
+    },
+    {
+        "name": "Product Name",
+        "categories": [
+            null
+        ],
+        "created_at": "",
+        "description": "",
+        "diameter": 0,
+        "discount": 0,
+        "featured": true,
+        "height": 0,
+        "id": 0,
+        "images": [
+            null
+        ],
+        "length": 0,
+        "package_format": "box",
+        "permalink": "",
+        "price": 0,
+        "sku": "",
+        "status": "available",
+        "stock": 100,
+        "stock_unlimited": true,
+        "variants": [
+            null
+        ],
+        "weight": 1,
+        "width": 0
+    }
+]

@@ -1,0 +1,25 @@
+The following document shows an example of a post document and its comments.
+
+"type" : "image",
+"url" : "https://www.anna.com/posts/124323.png",
+"description" : "Follow me to know more #prince #coder",
+"tags" : [
+    "coder", "prince",
+],
+"date_added" : "2021-11-12-11-07-12-890",
+"likes" : 12,
+"comments" : 4,
+"pinned_comments" : [
+    {
+        "username" : "prince",
+        "comment" : "Some pinned comment",
+        "date" : "2021-11-12-11-07-18-890"
+    }
+],
+"comments" 
+    - commentid
+        {
+            "username" : "prince",
+            "comment" : "some good comment",
+            "date_added" : "2021-11-12-11-07-14-890"
+        }
