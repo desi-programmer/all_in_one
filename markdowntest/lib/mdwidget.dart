@@ -24,6 +24,13 @@ class _MarkdownWidgetCodeState extends State<MarkdownWidgetCode> {
     print('Welcome')
     newdata[x] = 12
     mylist.append(12)
+    mylist.append(12)
+    mylist.append(12)
+    mylist.append(12)
+    mylist.append(12)
+    mylist.append(12)
+    mylist.append(12)
+    mylist.append(12)
   ```
   """;
 
@@ -35,30 +42,46 @@ class _MarkdownWidgetCodeState extends State<MarkdownWidgetCode> {
           "Markdown Widget Code",
         ),
       ),
-      body: MarkdownWidget(
-        padding: const EdgeInsets.all(
-          12.0,
-        ),
-        data: data,
-        styleConfig: StyleConfig(
-          titleConfig: TitleConfig(
-            commonStyle: const TextStyle(
-              fontSize: 20.0,
+      body: Column(
+        children: [
+          Expanded(
+            flex: 2,
+            child: MarkdownWidget(
+              shrinkWrap: true,
+              physics: const AlwaysScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(
+                12.0,
+              ),
+              data: data,
+              styleConfig: StyleConfig(
+                titleConfig: TitleConfig(
+                  commonStyle: const TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+                codeConfig: CodeConfig(
+                  codeStyle: const TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+                preConfig: PreConfig(
+                  language: 'py',
+                  theme: theme.atomOneLightTheme,
+                  textStyle: GoogleFonts.sourceCodePro(
+                    fontSize: 14.0,
+                  ),
+                ),
+              ),
             ),
           ),
-          codeConfig: CodeConfig(
-            codeStyle: const TextStyle(
-              fontSize: 40.0,
+          //
+          Expanded(
+            flex: 3,
+            child: Container(
+              color: Colors.red,
             ),
           ),
-          preConfig: PreConfig(
-            language: 'py',
-            theme: theme.atomOneLightTheme,
-            textStyle: GoogleFonts.sourceCodePro(
-              fontSize: 18.0,
-            ),
-          ),
-        ),
+        ],
       ),
     );
   }

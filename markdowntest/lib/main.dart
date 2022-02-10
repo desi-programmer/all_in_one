@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdowntest/mdwidget.dart';
+import 'package:markdowntest/types.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.lato().fontFamily,
         primarySwatch: Colors.purple,
       ),
-      home: const MarkdownWidgetCode(),
+      home: const TestingAllTypes(),
     );
   }
 }
