@@ -4,6 +4,13 @@ if your have problems running this, go to `android/local.properties`
 
 and Add SDK path
 
+// for windows 
+sdk.dir=C:\\Users\\UserName\\AppData\\Local\\Android\\sdk
+
+Also add platform tools to path
+
+Usually at : C:\Users\USERNAME\AppData\Local\Android\sdk\platform-tools.
+
 npx react-native start
 npx react-native run-android
 
