@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:im_stepper/stepper.dart';
 import 'package:multi_step_form/modal/user_modal.dart';
 import 'package:provider/provider.dart';
 
-class MultiStepProvider extends StatefulWidget {
-  const MultiStepProvider({Key? key}) : super(key: key);
+class MultiPageProvider extends StatefulWidget {
+  const MultiPageProvider({Key? key}) : super(key: key);
 
   @override
-  _MultiStepProviderState createState() => _MultiStepProviderState();
+  _MultiPageProviderState createState() => _MultiPageProviderState();
 }
 
-class _MultiStepProviderState extends State<MultiStepProvider> {
+class _MultiPageProviderState extends State<MultiPageProvider> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<UserModal>(
@@ -23,14 +22,14 @@ class _MultiStepProviderState extends State<MultiStepProvider> {
             "Using Provider",
           ),
         ),
-        //
         body: Consumer<UserModal>(
-          builder: (context, value, child) {
-            switch (value.activeIndex) {
+          builder: (context, modal, child) {
+            switch (modal.activeIndex) {
               case 0:
                 return const BasicDetails();
               case 1:
                 return const EducationDetails();
+
               default:
                 return const BasicDetails();
             }
@@ -53,8 +52,8 @@ class _BasicDetailsState extends State<BasicDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<UserModal>(
-      builder: (context, modal, child) => Form(
+    return Consumer<UserModal>(builder: (context, modal, child) {
+      return Form(
         key: basicFormKey,
         child: ListView(
           padding: const EdgeInsets.all(
@@ -64,8 +63,7 @@ class _BasicDetailsState extends State<BasicDetails> {
             Center(
               child: DotStepper(
                 activeStep: modal.activeIndex,
-                dotCount: modal.totalIndex,
-                dotRadius: 24.0,
+                dotRadius: 20.0,
                 shape: Shape.pipe,
                 spacing: 10.0,
               ),
@@ -86,45 +84,41 @@ class _BasicDetailsState extends State<BasicDetails> {
               ),
             ),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: "Email",
-              ),
-              validator: MultiValidator(
-                [
+                decoration: const InputDecoration(
+                  labelText: "Email",
+                ),
+                validator: MultiValidator([
                   RequiredValidator(
                     errorText: "Required *",
                   ),
                   EmailValidator(
-                    errorText: "Enter a valid Email",
+                    errorText: "Not Valid Email",
                   ),
-                ],
-              ),
-            ),
+                ])),
             TextFormField(
               decoration: const InputDecoration(
-                labelText: "Password",
+                labelText: "Passoword",
               ),
               validator: MinLengthValidator(
                 6,
-                errorText: "Enter atleast 6 characters",
+                errorText: "Min 6 characters required",
               ),
             ),
             const SizedBox(
               height: 12.0,
             ),
             SizedBox(
-              height: 45.0,
+              height: 40.0,
               child: ElevatedButton(
                 onPressed: () {
                   if (basicFormKey.currentState?.validate() ?? false) {
                     // next
-
                     modal.changeStep(1);
                   }
                 },
-                child: Text(
+                child: const Text(
                   "Next",
-                  style: GoogleFonts.rubik().copyWith(
+                  style: TextStyle(
                     fontSize: 20.0,
                   ),
                 ),
@@ -132,70 +126,62 @@ class _BasicDetailsState extends State<BasicDetails> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
 
-class EducationDetails extends StatefulWidget {
+class EducationDetails extends StatelessWidget {
   const EducationDetails({Key? key}) : super(key: key);
 
   @override
-  EducationDetailsState createState() => EducationDetailsState();
-}
-
-class EducationDetailsState extends State<EducationDetails> {
-  @override
   Widget build(BuildContext context) {
-    return Consumer<UserModal>(
-      builder: (context, modal, child) {
-        return ListView(
-          padding: const EdgeInsets.all(
-            12.0,
+    return Consumer<UserModal>(builder: (context, modal, child) {
+      return ListView(
+        padding: const EdgeInsets.all(
+          12.0,
+        ),
+        children: [
+          Center(
+            child: DotStepper(
+              activeStep: modal.activeIndex,
+              dotRadius: 20.0,
+              shape: Shape.pipe,
+              spacing: 10.0,
+            ),
           ),
-          children: [
-            Center(
-              child: DotStepper(
-                activeStep: modal.activeIndex,
-                dotCount: modal.totalIndex,
-                dotRadius: 24.0,
-                shape: Shape.pipe,
-                spacing: 10.0,
-              ),
+          Text(
+            "Step ${modal.activeIndex + 1} of ${modal.totalIndex}",
+            style: const TextStyle(
+              fontSize: 20.0,
             ),
-            Text(
-              "Step ${modal.activeIndex + 1} of ${modal.totalIndex}",
-              style: const TextStyle(
-                fontSize: 20.0,
-              ),
-              textAlign: TextAlign.center,
+            textAlign: TextAlign.center,
+          ),
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: "Name",
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: "Education",
-              ),
-              validator: RequiredValidator(
-                errorText: "Required *",
-              ),
+            validator: RequiredValidator(
+              errorText: "Required *",
             ),
-            const SizedBox(
-              height: 12.0,
-            ),
-            SizedBox(
-              height: 45.0,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "Register",
-                  style: GoogleFonts.rubik().copyWith(
-                    fontSize: 20.0,
-                  ),
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          SizedBox(
+            height: 40.0,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                "Register",
+                style: TextStyle(
+                  fontSize: 20.0,
                 ),
               ),
             ),
-          ],
-        );
-      },
-    );
+          ),
+        ],
+      );
+    });
   }
 }

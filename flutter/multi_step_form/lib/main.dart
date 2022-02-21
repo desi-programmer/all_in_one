@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MultiStepProvider(),
+      home: const MultiPageProvider(),
       // home: const MultiPageBasic(),
     );
   }
