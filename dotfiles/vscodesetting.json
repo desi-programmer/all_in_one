@@ -17,5 +17,5 @@
     "workbench.colorTheme": "One Dark Pro Darker",
     "editor.lineHeight": 1.5,
     "workbench.iconTheme": "vscode-icons",
-    "dart.showInspectorNotificationsForWidgetErrors": false,
+    "dart.showInspectorNotificationsForWidgetErrors": false
 }
