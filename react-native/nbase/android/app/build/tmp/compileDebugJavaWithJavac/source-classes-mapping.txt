@@ -1,0 +1,14 @@
+com/nbase/MainActivity.java
+ com.nbase.MainActivity
+com/nbase/MainApplication.java
+ com.nbase.MainApplication
+ com.nbase.MainApplication$1
+com/nbase/ReactNativeFlipper.java
+ com.nbase.ReactNativeFlipper
+ com.nbase.ReactNativeFlipper$1
+ com.nbase.ReactNativeFlipper$2
+ com.nbase.ReactNativeFlipper$2$1
+com/nbase/BuildConfig.java
+ com.nbase.BuildConfig
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
