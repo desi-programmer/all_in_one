@@ -1,5 +1,5 @@
 {
-  "name": "projectname",
+  "name": "nativebase_01",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,14 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.8",
-    "@react-navigation/stack": "^6.1.1",
-    "native-base": "3.3.7",
+    "native-base": "3.4.0",
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-gesture-handler": "^2.3.2",
-    "react-native-safe-area-context": "^3.4.1",
-    "react-native-screens": "^3.13.1",
+    "react-native-safe-area-context": "^3.2.0",
     "react-native-svg": "^12.1.1"
   },
   "devDependencies": {

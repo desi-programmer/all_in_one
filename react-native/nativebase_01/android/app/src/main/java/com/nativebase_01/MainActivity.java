@@ -1,5 +1,4 @@
-package com.nativetemplate;
-import android.os.Bundle;
+package com.nativebase_01;
 
 import com.facebook.react.ReactActivity;
 
@@ -11,11 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "nativeTemplate";
-  }
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+    return "nativebase_01";
   }
 }
